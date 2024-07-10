@@ -149,6 +149,7 @@ int main (){
 
     NodePool * mmap_addr =(NodePool *) mmap (NULL, file_info.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
     assert (mmap_addr != MAP_FAILED);
+    printf("Printing Tree to file %s",print_file_name);
     print_tree(outfile,mmap_addr,0,ROOT_INDEX);
 
 

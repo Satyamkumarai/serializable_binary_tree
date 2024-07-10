@@ -160,7 +160,7 @@ void insert_into_tree(NodePool * np , NodeData data){
     
 }
 
-int main(){
+int run_load(){
     const char * OUTFILE_PATH = "gen.bin";
     printf("Loading from file %s\n",OUTFILE_PATH);
     load_tree_from_file(&global_pool , OUTFILE_PATH);
@@ -169,7 +169,8 @@ int main(){
     UNUSED(root);
     return 0;
 }
-int main1(){
+
+int run_save(){
     srand(0);
     const char * OUTFILE_PATH = "gen.bin";
     // Node * root = generate_random_tree_of_level(&global_pool , 6);
@@ -186,7 +187,17 @@ int main1(){
     printf("Saving to file %s\n",OUTFILE_PATH);
 
     save_tree_to_file(&global_pool , OUTFILE_PATH);
-    printf("size of Node * is %zu ",sizeof(Node));
+    // printf("size of Node * is %zu ",sizeof(Node));
     return 0;
 
+}
+
+int main(){
+
+    #ifdef TEST_SAVE
+    run_save();
+    #elif defined(TEST_LOAD)
+    run_load();
+    #endif
+    return 0;
 }
