@@ -134,7 +134,7 @@ int main (){
         if (insert_tree (&global_pool , rand())==NULL)
             printf("Error inserting%d \n",i);
     
-    // print_tree(outfile,&global_pool , 0 , ROOT_INDEX);
+    print_tree(outfile,&global_pool , 0 , ROOT_INDEX);
     printf("Saving to file : %s\n",filename);
     save_pool_to_file(&global_pool,filename);
 
@@ -143,7 +143,7 @@ int main (){
     Node * root = &global_pool.buffer[ROOT_INDEX];
     printf("Loading from file : %s\n",filename);
     load_pool_from_file(&global_pool,filename);
-    // print_tree(outfile,&global_pool , 0 , ROOT_INDEX);
+    print_tree(outfile,&global_pool , 0 , ROOT_INDEX);
     #endif
     fclose(outfile);
     return 0 ;
